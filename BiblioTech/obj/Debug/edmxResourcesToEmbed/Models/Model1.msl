@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BiblioTechModelStoreContainer" CdmEntityContainer="BiblioTechEntities">
+    <EntitySetMapping Name="Auteur">
+      <EntityTypeMapping TypeName="BiblioTechModel.Auteur">
+        <MappingFragment StoreEntitySet="Auteur">
+          <ScalarProperty Name="Identifiant_unique" ColumnName="Identifiant_unique" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="bio" ColumnName="bio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Livre">
+      <EntityTypeMapping TypeName="BiblioTechModel.Livre">
+        <MappingFragment StoreEntitySet="Livre">
+          <ScalarProperty Name="id_livre" ColumnName="id_livre" />
+          <ScalarProperty Name="titre" ColumnName="titre" />
+          <ScalarProperty Name="isbn" ColumnName="isbn" />
+          <ScalarProperty Name="date_publication" ColumnName="date_publication" />
+          <ScalarProperty Name="id_auteur" ColumnName="id_auteur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

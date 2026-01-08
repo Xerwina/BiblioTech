@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BiblioTechModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Auteur">
+          <Key>
+            <PropertyRef Name="Identifiant_unique" />
+          </Key>
+          <Property Name="Identifiant_unique" Type="int" Nullable="false" />
+          <Property Name="nom" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="bio" Type="text" />
+        </EntityType>
+        <EntityType Name="Livre">
+          <Key>
+            <PropertyRef Name="id_livre" />
+          </Key>
+          <Property Name="id_livre" Type="int" Nullable="false" />
+          <Property Name="titre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="isbn" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="date_publication" Type="datetime" Nullable="false" />
+          <Property Name="id_auteur" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Livre_Auteur">
+          <End Role="Auteur" Type="Self.Auteur" Multiplicity="1" />
+          <End Role="Livre" Type="Self.Livre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Auteur">
+              <PropertyRef Name="Identifiant_unique" />
+            </Principal>
+            <Dependent Role="Livre">
+              <PropertyRef Name="id_auteur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BiblioTechModelStoreContainer">
+          <EntitySet Name="Auteur" EntityType="Self.Auteur" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Livre" EntityType="Self.Livre" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Livre_Auteur" Association="Self.FK_Livre_Auteur">
+            <End Role="Auteur" EntitySet="Auteur" />
+            <End Role="Livre" EntitySet="Livre" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BiblioTechModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Auteur">
+          <Key>
+            <PropertyRef Name="Identifiant_unique" />
+          </Key>
+          <Property Name="Identifiant_unique" Type="Int32" Nullable="false" />
+          <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="bio" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Livre" Relationship="Self.FK_Livre_Auteur" FromRole="Auteur" ToRole="Livre" />
+        </EntityType>
+        <EntityType Name="Livre">
+          <Key>
+            <PropertyRef Name="id_livre" />
+          </Key>
+          <Property Name="id_livre" Type="Int32" Nullable="false" />
+          <Property Name="titre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="isbn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="date_publication" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="id_auteur" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Auteur" Relationship="Self.FK_Livre_Auteur" FromRole="Livre" ToRole="Auteur" />
+        </EntityType>
+        <Association Name="FK_Livre_Auteur">
+          <End Role="Auteur" Type="Self.Auteur" Multiplicity="1" />
+          <End Role="Livre" Type="Self.Livre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Auteur">
+              <PropertyRef Name="Identifiant_unique" />
+            </Principal>
+            <Dependent Role="Livre">
+              <PropertyRef Name="id_auteur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BiblioTechEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Auteur" EntityType="Self.Auteur" />
+          <EntitySet Name="Livre" EntityType="Self.Livre" />
+          <AssociationSet Name="FK_Livre_Auteur" Association="Self.FK_Livre_Auteur">
+            <End Role="Auteur" EntitySet="Auteur" />
+            <End Role="Livre" EntitySet="Livre" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BiblioTechModelStoreContainer" CdmEntityContainer="BiblioTechEntities1">
+          <EntitySetMapping Name="Auteur">
+            <EntityTypeMapping TypeName="BiblioTechModel.Auteur">
+              <MappingFragment StoreEntitySet="Auteur">
+                <ScalarProperty Name="Identifiant_unique" ColumnName="Identifiant_unique" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="bio" ColumnName="bio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Livre">
+            <EntityTypeMapping TypeName="BiblioTechModel.Livre">
+              <MappingFragment StoreEntitySet="Livre">
+                <ScalarProperty Name="id_livre" ColumnName="id_livre" />
+                <ScalarProperty Name="titre" ColumnName="titre" />
+                <ScalarProperty Name="isbn" ColumnName="isbn" />
+                <ScalarProperty Name="date_publication" ColumnName="date_publication" />
+                <ScalarProperty Name="id_auteur" ColumnName="id_auteur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,13 @@
+C:\Users\bmolin\Documents\MASTERE\C#\workspace\DandD\BiblioTech\BiblioTech\obj\Debug\BiblioTech.csproj.AssemblyReference.cache
+C:\Users\bmolin\Documents\MASTERE\C#\workspace\DandD\BiblioTech\BiblioTech\obj\Debug\BiblioTech.csproj.CoreCompileInputs.cache
+C:\Users\bmolin\Documents\MASTERE\C#\workspace\DandD\BiblioTech\BiblioTech\bin\Debug\BiblioTech.exe.config
+C:\Users\bmolin\Documents\MASTERE\C#\workspace\DandD\BiblioTech\BiblioTech\bin\Debug\BiblioTech.exe
+C:\Users\bmolin\Documents\MASTERE\C#\workspace\DandD\BiblioTech\BiblioTech\bin\Debug\BiblioTech.pdb
+C:\Users\bmolin\Documents\MASTERE\C#\workspace\DandD\BiblioTech\BiblioTech\bin\Debug\EntityFramework.dll
+C:\Users\bmolin\Documents\MASTERE\C#\workspace\DandD\BiblioTech\BiblioTech\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\bmolin\Documents\MASTERE\C#\workspace\DandD\BiblioTech\BiblioTech\bin\Debug\EntityFramework.xml
+C:\Users\bmolin\Documents\MASTERE\C#\workspace\DandD\BiblioTech\BiblioTech\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\bmolin\Documents\MASTERE\C#\workspace\DandD\BiblioTech\BiblioTech\obj\Debug\BiblioTech.csproj.Up2Date
+C:\Users\bmolin\Documents\MASTERE\C#\workspace\DandD\BiblioTech\BiblioTech\obj\Debug\BiblioTech.exe
+C:\Users\bmolin\Documents\MASTERE\C#\workspace\DandD\BiblioTech\BiblioTech\obj\Debug\BiblioTech.pdb
+C:\Users\bmolin\Documents\MASTERE\C#\workspace\DandD\BiblioTech\BiblioTech\obj\Debug\BiblioTech.exe.config
